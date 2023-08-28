@@ -1,5 +1,5 @@
 # Weather App
-A weather app
+A weather app built using HTML, CSS and javaScript and openweathermaps's API to get current weather data
 
 ## Deployment of live demo
 This app was deployed using Netlify
