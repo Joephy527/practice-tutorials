@@ -16,32 +16,32 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      --local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require('lspconfig')
 
       lspconfig.lua_ls.setup({
-        capabilites = capabilities,
+        --capabilities = capabilities,
       })
       lspconfig.tsserver.setup({
-        capabilites = capabilities,
+        --capabilities = capabilities,
       })
       lspconfig.html.setup({
-        capabilites = capabilities,
+        --capabilities = capabilities,
       })
       lspconfig.cssls.setup({
-        capabilites = capabilities,
+        --capabilities = capabilities,
       })
       lspconfig.dockerls.setup({
-        capabilites = capabilities,
+        --capabilities = capabilities,
       })
       lspconfig.docker_compose_language_service.setup({
-        capabilites = capabilities,
+        --capabilities = capabilities,
       })
       lspconfig.prismals.setup({
-        capabilites = capabilities,
+        --capabilities = capabilities,
       })
       lspconfig.tailwindcss.setup({
-        capabilites = capabilities,
+        --capabilities = capabilities,
       })
 
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
