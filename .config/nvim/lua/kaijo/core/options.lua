@@ -2,6 +2,8 @@ vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt
 
+opt.guicursor = ""
+
 opt.relativenumber = true
 opt.number = true
 
@@ -24,18 +26,22 @@ opt.smartcase = true
 -- turn on termguicolors for nightfly colorscheme to work
 -- (have to use iterm2 or any other true color terminal)
 opt.termguicolors = true
-opt.background = "dark" 
-opt.signcolumn = "yes" 
+opt.background = "dark"
+opt.signcolumn = "yes"
+opt.scrolloff = 8
 
 -- backspace
-opt.backspace = "indent,eol,start" 
+opt.backspace = "indent,eol,start"
 
 -- clipboard
-opt.clipboard:append("unnamedplus") 
+opt.clipboard:append("unnamedplus")
 
 -- split windows
-opt.splitright = true 
-opt.splitbelow = true 
+opt.splitright = true
+opt.splitbelow = true
 
 -- turn off swapfile
 opt.swapfile = false
+
+opt.updatetime = 50
+opt.colorcolumn = "80"
