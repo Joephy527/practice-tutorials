@@ -44,4 +44,4 @@ opt.splitbelow = true
 opt.swapfile = false
 
 opt.updatetime = 50
-opt.colorcolumn = "80"
+-- opt.colorcolumn = "80"
