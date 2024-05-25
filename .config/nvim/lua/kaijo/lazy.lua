@@ -15,7 +15,7 @@ require("lazy").setup({ { import = "kaijo.plugins" }, { import = "kaijo.plugins.
   checker = {
     enabled = true,
     notify = false,
-  }, 
+  },
   change_detection = {
     notify = false,
   },
