@@ -16,7 +16,7 @@ set $mod Mod1
 floating_minimum_size 75 x 50
 floating_maximum_size 400 x 300
 
-font pango:monospace 8
+font pango:Meslo LGM Nerd Font 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -107,7 +107,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -117,16 +117,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: Alacritty "
-set $ws2 "2: Chrome "
-set $ws3 "3: Telegram "
-set $ws4 "4: Spotify "
-set $ws5 "5: Extra "
+set $ws1 "1: Alacritty  "
+set $ws2 "2: Chrome  "
+set $ws3 "3: Telegram  "
+set $ws4 "4: Spotify  "
+set $ws5 "5: Files  "
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws9 "9: Slack  "
+set $ws10 "10: Bluetooth  "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -138,7 +138,7 @@ bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
 bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -150,13 +150,17 @@ bindsym $mod+Shift+6 move container to workspace number $ws6
 bindsym $mod+Shift+7 move container to workspace number $ws7
 bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # assign workspaces to specific apps
 assign [class="Alacritty"] $ws1
 assign [class="Google-chrome"] $ws2
 assign [class="TelegramDesktop"] $ws3
 assign [class="Spotify"] $ws4
+assign [class="Slack"] $ws9
+assign [class="Blueberry.py"] $ws10
+# assign [class="Nm-connection-editor"] $ws10
+assign [class="Nemo"] $ws5
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -192,11 +196,46 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+set $rosewater #f5e0dc
+set $flamingo  #f2cdcd
+set $pink      #f5c2e7
+set $mauve     #cba6f7
+set $red       #f38ba8
+set $maroon    #eba0ac
+set $peach     #fab387
+set $yellow    #f9e2af
+set $green     #a6e3a1
+set $teal      #94e2d5
+set $sky       #89dceb
+set $sapphire  #74c7ec
+set $blue      #89b4fa
+set $lavender  #b4befe
+set $text      #cdd6f4
+set $subtext1  #bac2de
+set $subtext0  #a6adc8
+set $overlay2  #9399b2
+set $overlay1  #7f849c
+set $overlay0  #6c7086
+set $surface2  #585b70
+set $surface1  #45475a
+set $surface0  #313244
+set $base      #1e1e2e
+set $mantle    #181825
+set $crust     #11111b
+
+# target                 title     bg    text      indicator    border
+client.focused           $mantle   $mauve $mantle  $rosewater $mauve
+client.focused_inactive  $overlay0 $base  $text    $rosewater $overlay0
+client.unfocused         $overlay0 $base  $text    $rosewater $overlay0
+client.urgent            $peach    $base  $peach   $overlay0  $peach
+client.placeholder       $overlay0 $base  $text    $overlay0  $overlay0
+client.background        $base
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
+# bar {
+#         status_command i3status
+# }
 
 bindsym $mod+shift+x exec i3lock
 
@@ -218,10 +257,23 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# wallpaper
+# rofi
+bindsym $mod+space exec rofi -show combi
+bindsym $mod+shift+w exec bash ~/rofi-wifi-menu/rofi-wifi-menu.sh
+
 exec alacritty
 exec google-chrome-stable
 exec telegram-desktop
 exec spotify-launcher
+exec slack
+exec nemo
+exec blueberry
+# exec nm-connection-editor
+exec --no-startup-id picom
 
+# wallpaper
 exec_always feh --bg-scale /home/kaijo/Downloads/'wallpaperflare.com_wallpaper (3).jpg'
+exec_always --no-startup-id killall polybar
+
+exec_always nm-applet
+exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
