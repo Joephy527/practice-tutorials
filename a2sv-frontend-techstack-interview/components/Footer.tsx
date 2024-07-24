@@ -27,12 +27,12 @@ const Footer = () => {
   return (
     <footer className="bg-button-bg text-white">
       <div className="2xl:max-w-9/10 w-full mx-auto">
-        <div className="pr-40 pl-18 flex justify-between py-16">
+        <div className="pr-6 pl-10 sm:pr-20 md:pr-40 sm:pl-18 flex flex-col gap-10 lg:flex-row justify-between py-16">
           <Link href="/">
             <h2 className="font-bold text-3xl">HakimHub</h2>
           </Link>
 
-          <div className="grid grid-cols-3 gap-18">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-5 md:gap-18">
             {contents.map((content) => (
               <div key={content.heading}>
                 <h3 className="font-bold mb-3">{content.heading}</h3>
@@ -56,17 +56,17 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="pr-48 pl-4">
+        <div className="pr-8 sm:pr-20 md:pr-48 pl-4">
           <hr />
         </div>
 
-        <div className="flex justify-between items-center py-5 pl-20 pr-56">
-          <div className="flex font-semibold items-center gap-24">
+        <div className="flex justify-between items-center py-5 px-10 sm:pl-20 sm:pr-20 md:pr-56">
+          <div className="flex flex-col md:flex-row font-semibold items-center gap-4 lg:gap-24">
             <Link href="/">Privacy Policy</Link>
             <Link href="/">Terms of Use</Link>
           </div>
 
-          <div className="grid grid-cols-4 gap-12.5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 lg:gap-12.5">
             {socialMedia.map((socials) => (
               <Link href="/" key={socials.link}>
                 <Image

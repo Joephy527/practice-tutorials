@@ -12,7 +12,8 @@ const CardList = () => {
   const dispatch = useDispatch<AppDispatch>();
   const items = useSelector((state: RootState) => state.items.value);
 
-  const [getInfo, { data: cardData, isLoading }] = useGetInfoMutation();
+  const [getInfo, { data: cardData, isLoading, isError }] =
+    useGetInfoMutation();
 
   useEffect(() => {
     getInfo({});
@@ -21,6 +22,10 @@ const CardList = () => {
   useEffect(() => {
     dispatch(setItems(cardData?.data));
   }, [cardData]);
+
+  if (isError) {
+    return <h1 className="text-4xl">Error Fetching Hospitals</h1>;
+  }
 
   return (
     <section className="py-25.5 flex flex-col items-center gap-11">

@@ -20,21 +20,23 @@ const Card = ({
   imageUrl,
 }: cardProps) => {
   return (
-    <div className="flex gap-11 items-center pr-4 w-9/10 relative rounded-3xl bg-card-bg/5 max-w-5xl">
+    <div className="flex flex-col lg:flex-row xl:gap-11 gap-5 items-center pb-5 lg:pb-0 lg:pr-4 w-9/10 relative rounded-3xl bg-card-bg/5 max-w-sm lg:max-w-5xl">
       <Image
         src={imageUrl}
         width={332}
         height={232.48}
         alt="card image"
-        className="object-cover rounded-3xl h-[232.48px] w-[332px]"
+        className="object-cover rounded-t-3xl lg:rounded-3xl xl:h-[232.48px] xl:w-[332px] h-[250px] lg:h-[200px] w-full lg:w-[290px]"
       />
 
-      <div className="flex-grow">
-        <div className="mb-12.5 flex items-center justify-between gap-5">
-          <div>
-            <p className="text-card-bg font-light text-sm">{location}</p>
+      <div className="flex-grow px-4 w-full">
+        <div className="mb-12.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="max-w-72 xl:max-w-96">
+            <p className="text-card-bg font-light text-xs xl:text-sm">
+              {location}
+            </p>
 
-            <h2 className="font-bold text-2xl text-custom-black">{name}</h2>
+            <h2 className="font-bold xl:text-2xl text-custom-black">{name}</h2>
 
             <p className="flex gap-2.5 items-center">
               <Image
@@ -51,7 +53,7 @@ const Card = ({
           </div>
 
           <p
-            className={`${status === "Open" ? "bg-open" : "bg-close"} px-3 py-1 rounded-2xl font-semibold text-sm ${status === "Open" ? "text-open-text" : "text-custom-red"}`}
+            className={`${status === "Open" ? "bg-open" : "bg-close"} px-3 lg:px-1.5 xl:px-3 py-1 rounded-2xl font-semibold text-xs xl:text-sm ${status === "Open" ? "text-open-text" : "text-custom-red"}`}
           >{`${status} Now`}</p>
         </div>
 
