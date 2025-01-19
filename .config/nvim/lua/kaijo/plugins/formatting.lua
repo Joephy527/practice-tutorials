@@ -20,6 +20,12 @@ return {
         liquid = { "prettier" },
         lua = { "stylua" },
         python = { "isort", "black" },
+        vue = { "prettier" },
+        go = {
+          "gofmt",
+          "gofumpt",
+          "golines",
+        },
       },
       format_on_save = {
         lsp_fallback = true,
